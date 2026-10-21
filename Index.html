@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="id"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>PBB Langsung Jadi</title>
+<style>
+:root{--green:#174e43;--ink:#243a35;--line:#dbe5df}*{box-sizing:border-box}body{margin:0;background:#f3f6f3;color:var(--ink);font:15px/1.6 system-ui,Segoe UI,sans-serif}header{background:var(--green);color:white;padding:30px max(calc((100vw - 1040px)/2),24px) 50px}.brand{font-size:12px;font-weight:700;letter-spacing:2px;color:#c9dfd3}h1{font-size:32px;line-height:1.25;margin:12px 0}header p{margin:0;color:#d6e5dd}main{max-width:1040px;margin:-22px auto 60px;padding:0 20px}.intro{background:#eaf2ec;border:1px solid #ccdfd1;border-radius:12px;padding:16px 22px;margin-bottom:22px;position:relative;font-size:14px}section{background:white;border:1px solid var(--line);border-radius:14px;margin-bottom:20px;padding:26px 30px}.title{display:flex;align-items:center;gap:12px;margin-bottom:24px}.number{background:#edf3ee;color:var(--green);border-radius:9px;width:34px;height:34px;display:grid;place-items:center;font-size:13px;font-weight:750}h2{font-size:17px;margin:0;letter-spacing:.2px}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px 24px}.three{grid-template-columns:2fr 1fr 1fr}.full{grid-column:1/-1}label.field{display:block;font-size:13px;font-weight:650}input:not([type=radio]):not([type=checkbox]):not([type=file]){width:100%;border:1px solid #cddad2;border-radius:7px;padding:12px 13px;margin-top:7px;font:400 15px system-ui;color:var(--ink);background:white;min-height:46px}input::placeholder{color:#9ca9a1;font-weight:350;font-size:14px}input:focus{outline:2px solid #9fc7b3;outline-offset:1px}fieldset{border:0;margin:0;padding:0;min-width:0}legend{font-size:13px;font-weight:650;margin-bottom:10px;padding:0}.choices{display:flex;flex-wrap:wrap;gap:9px}.choice{border:1px solid var(--line);border-radius:7px;padding:9px 12px;display:flex;align-items:center;gap:8px;font-size:13px;cursor:pointer}.choice:has(input:checked){border-color:#45826b;background:#edf5ef;color:#174e43}.choice input{accent-color:var(--green);margin:0;width:16px;height:16px;flex-shrink:0}.hint{font-size:12px;color:#687b73;margin:8px 0 0}.upload-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}.upload{border:1px dashed #a9bfb1;border-radius:10px;padding:20px 14px;text-align:center;background:#fafcf9}.upload strong{display:block;font-size:14px}.icon{font-size:25px;color:var(--green)}.upload button{margin:12px 3px 0;background:white;color:var(--green);border:1px solid #c4d7cb;border-radius:6px;padding:8px 9px;font:12px system-ui;cursor:pointer}.filename{display:block;font-size:12px;overflow-wrap:anywhere;margin-top:10px;color:#687b73}.file-hidden{display:none}.statement{display:flex;align-items:flex-start;gap:12px;background:#f4f7f3;padding:18px;border-radius:8px;font-size:14px}.statement input{margin-top:5px;accent-color:var(--green);width:18px;height:18px;flex-shrink:0}.signature-wrap{margin-top:22px;max-width:520px}.signature-head{display:flex;justify-content:space-between;align-items:center;font-size:13px;font-weight:650}.clear{background:none;border:0;color:#416e5b;font-size:12px;cursor:pointer;text-decoration:underline}canvas{display:block;width:100%;height:180px;border:1px solid #cddad2;border-radius:8px;margin-top:8px;background:linear-gradient(transparent 139px,#e1e8e2 140px,transparent 141px);touch-action:none;cursor:crosshair}.footer{display:flex;justify-content:space-between;align-items:center;gap:20px;margin-top:26px}.submit{border:0;border-radius:8px;background:var(--green);color:white;padding:14px 30px;font:650 15px system-ui;cursor:pointer}.footer p{margin:0;font-size:12px;color:#687b73}.collapsed{display:none}.collapsed-note{background:#edf3ee;padding:13px 16px;border-radius:8px;font-size:13px;color:#586e61}#notice{display:none;margin:20px 0;padding:18px;background:#e7f2e9;border:1px solid #bad5c2;border-radius:9px}footer{text-align:center;font-size:12px;color:#84928a;margin-top:24px}.req{color:#a66446;margin-left:3px}@media(max-width:700px){header{padding:24px 22px 44px}h1{font-size:26px}main{padding:0 14px}section{padding:22px 18px}.grid,.three,.upload-grid{grid-template-columns:1fr}.footer{align-items:stretch;flex-direction:column}.submit{width:100%}.choice{flex-grow:1}.full{grid-column:auto}}
+/* Kolom pendek menghemat ruang untuk alamat dan data wilayah. */
+#objectFields{grid-template-columns:minmax(0,1fr) 88px 88px}
+.subject-locality{display:grid;grid-template-columns:88px 88px repeat(2,minmax(0,1fr));gap:20px 24px}
+.building-metrics{grid-template-columns:repeat(3,minmax(0,1fr))}
+@media(max-width:700px){
+ #objectFields{grid-template-columns:repeat(2,minmax(0,1fr))}
+ #objectFields>label:first-child{grid-column:1/-1}
+ #objectFields>label:not(:first-child) input{max-width:88px}
+ .subject-locality{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .subject-locality>label:nth-child(-n+2) input{max-width:88px}
+ .year-pair{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+/* Susunan ringkas untuk pengisian dokumen. */
+.subject-locality{grid-template-columns:minmax(0,1fr) 88px 88px}
+.land-rights{display:grid;grid-template-columns:180px minmax(0,1fr);gap:20px 24px;align-items:start}
+.land-use{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.25fr);gap:20px 24px}
+.ceiling-ac{display:grid;grid-template-columns:minmax(0,1fr) 120px;gap:20px 24px;align-items:start}
+.signature-actions{display:grid;grid-template-columns:minmax(0,1fr) minmax(210px,.65fr);gap:28px;align-items:end;margin-top:22px}
+.signature-actions .signature-wrap{margin-top:0;min-width:0}
+.signature-actions .footer{margin:0;display:flex;flex-direction:column;align-items:flex-end;gap:16px;padding-bottom:28px}
+.signature-actions .footer p{max-width:260px;text-align:right}
+@media(max-width:700px){
+ .subject-locality{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .subject-locality>label:first-child{grid-column:1/-1}
+ .subject-locality>label input{max-width:none}
+ .subject-locality>label:not(:first-child) input{max-width:88px}
+ .land-rights,.land-use,.ceiling-ac,.signature-actions{grid-template-columns:minmax(0,1fr)}
+ .land-rights>label input{max-width:180px}
+ .ceiling-ac>label input{max-width:120px}
+ .signature-actions .footer{align-items:stretch;padding-bottom:0}
+ .signature-actions .footer p{max-width:none;text-align:left}
+}
+</style></head><body>
+<header><div class="brand">PELAYANAN PAJAK BUMI DAN BANGUNAN</div><h1>Permohonan PBB Langsung Jadi</h1><p>Lengkapi data objek, subjek pajak, dan lampiran permohonan Anda.</p></header>
+<main><div class="intro"><strong>Pratinjau formulir</strong> · Silakan coba pengisian dan tanda tangan. Tombol kirim belum terhubung ke penyimpanan.</div>
+<form id="application">
+<section><div class="title"><span class="number">01</span><h2>DATA SPPT</h2></div><div id="spptFields" class="grid"></div></section>
+<section><div class="title"><span class="number">02</span><h2>DATA LETAK OBJEK PAJAK</h2></div><div id="objectFields" class="grid three"></div></section>
+<section><div class="title"><span class="number">03</span><h2>DATA SUBJEK PAJAK</h2></div><div id="subjectFields" class="grid"></div></section>
+<section><div class="title"><span class="number">04</span><h2>DATA TANAH</h2></div><div id="landFields" class="grid"></div></section>
+<section><div class="title"><span class="number">05</span><h2>DATA BANGUNAN</h2></div><div id="buildingNote" class="collapsed-note">Pilih Tanah+Bangunan untuk mengisi data bangunan.</div><div id="buildingFields" class="grid collapsed"></div></section>
+<section><div class="title"><span class="number">06</span><h2>LAMPIRAN UPLOAD BERKAS</h2></div><p class="hint" style="margin:-12px 0 20px">Pilih foto/PDF dari penyimpanan atau ambil foto langsung dengan kamera HP.</p><div id="uploads" class="upload-grid"></div></section>
+<section><div class="title"><span class="number">07</span><h2>PERNYATAAN</h2></div><label class="statement"><input type="checkbox" name="pernyataan" required><span>Saya menyatakan bahwa informasi yang telah saya berikan dalam formulir ini termasuk lampirannya adalah benar, jelas, dan lengkap menurut keadaan yang sebenarnya, sesuai dengan Pasal 10 ayat (3) Perda Kabupaten Bantul No. 18 Tahun 2011.</span></label><div class="grid" id="declarationFields" style="margin-top:24px"></div><div class="signature-wrap"><div class="signature-head"><span>Tanda Tangan<span class="req">*</span></span><button type="button" class="clear" id="clearSignature">Hapus tanda tangan</button></div><canvas id="signature" aria-label="Area tanda tangan menggunakan layar sentuh atau mouse"></canvas><p class="hint">Bubuhkan tanda tangan dengan jari di layar HP atau dengan mouse.</p></div><div id="notice" role="status" aria-live="polite"></div><div class="footer"><p>Periksa kembali seluruh isian sebelum mengirim permohonan.</p><button type="submit" class="submit">Kirim permohonan &nbsp; →</button></div></section>
+</form><footer>PBB Langsung Jadi · Formulir permohonan pelayanan</footer></main>
+<script>
+const form=document.getElementById('application');
+function field(group,name,label,{type='text',required=true,placeholder='',digits=false,maxLength,full=false}={}){
+ const exactLength=({nop:18,nik:16,rwObjek:3,rtObjek:3,rw:3,rt:3,tahunDibangun:4,tahunDirenovasi:4})[name];
+ const hints={nop:'MASUKAN 18 DIGIT TANPA TANDA BACA',namaSppt:'NAMA LAMA YANG TERCETAK DI SPPT',jalanObjek:'NAMA JALAN, DUKUH ATAU NAMA PERUMAHAN',rwObjek:'000',rtObjek:'000',nik:'ANGKA SAJA, 16 DIGIT NIK',nama:'NAMA SESUAI KTP',alamat:'ALAMAT SESUAI KTP',rw:'000',rt:'000',kalurahan:'DESA/KALURAHAN SESUAI KTP',kapanewon:'KECAMATAN/KAPANEWON SESUAI KTP',kabupaten:'KABUPATEN SESUAI KTP',provinsi:'PROVINSI SESUAI KTP',telepon:'CONTOH: 081234567890',luasTanah:'ANGKA',nomorSertifikat:'5 DIGIT TERAKHIR SERTIFIKAT FISIK ATAU 14 DIGIT NIBEL SERTIFIKAT ELEKTRONIK',nib:'5 DIGIT NIB',luasBangunan:'ANGKA',tahunDibangun:'CONTOH: 2006',tahunDirenovasi:'KOSONGKAN JIKA BELUM',jumlahLantai:'CONTOH: 1',dayaListrik:'CONTOH: 2200',jumlahAc:'0 JIKA TIDAK ADA',namaPernyataan:'NAMA SUBJEK PAJAK'};
+ placeholder=hints[name]||placeholder;
+ if(type==='number'){type='text';digits=true}
+ if(['nomorSertifikat','nib','telepon'].includes(name))digits=true;
+ if(exactLength){digits=true;maxLength=exactLength}
+ const wrap=document.createElement('label');wrap.className='field'+(full?' full':'');wrap.append(document.createTextNode(label));if(required){const star=document.createElement('span');star.className='req';star.textContent='*';wrap.append(star)}
+ const el=document.createElement('input');el.type=type;el.name=name;el.required=required;el.placeholder=placeholder;if(maxLength)el.maxLength=maxLength;
+ if(digits){el.inputMode='numeric';el.pattern=exactLength?'[0-9]{'+exactLength+'}':'[0-9]+';if(exactLength)el.minLength=exactLength;el.title=exactLength?'HARUS TEPAT '+exactLength+' DIGIT ANGKA':'ANGKA SAJA TANPA TANDA BACA';}
+ else if(type==='text'){el.autocapitalize='characters';el.spellcheck=false}
+ function validate(){let error='';if(el.value){if(exactLength&&el.value.length!==exactLength)error=label+' harus tepat '+exactLength+' digit angka.';else if(['luasTanah','luasBangunan','jumlahLantai'].includes(name)&&!/[1-9]/.test(el.value))error=label+' harus lebih dari 0.';else if(name.startsWith('tahun')&&(Number(el.value)<1800||Number(el.value)>new Date().getFullYear()))error=label+' harus antara 1800 dan '+new Date().getFullYear()+'.';}el.setCustomValidity(error)}
+ el.addEventListener('input',()=>{const start=el.selectionStart,end=el.selectionEnd;if(digits){let value=el.value.replace(/\D/g,'');el.value=maxLength?value.slice(0,maxLength):value}else if(type==='text'){el.value=el.value.toLocaleUpperCase('id-ID');if(start!==null&&end!==null)el.setSelectionRange(start,end)}validate()});
+ el.addEventListener('blur',validate);
+ wrap.append(el);
+ if(['jalanObjek','alamat'].includes(name)){
+   const limit=30;el.maxLength=limit;
+   const help=document.createElement('span');help.className='hint';help.style.display='block';help.id=name+'-length';help.setAttribute('aria-live','polite');
+   el.setAttribute('aria-describedby',help.id);wrap.append(help);
+   function showLength(exceeded=false){help.textContent=exceeded?'MAKSIMAL 30 KARAKTER TERMASUK SPASI. PENAMBAHAN TEKS DITOLAK.':'';help.style.display=exceeded?'block':'none';help.style.color='#a33a25';}
+   function proposed(text){const start=el.selectionStart??el.value.length,end=el.selectionEnd??start;return el.value.slice(0,start)+text.toLocaleUpperCase('id-ID')+el.value.slice(end);}
+   el.addEventListener('beforeinput',e=>{if(e.inputType&&e.inputType.startsWith('insert')&&typeof e.data==='string'&&proposed(e.data).length>limit){e.preventDefault();showLength(true)}});
+   el.addEventListener('paste',e=>{const text=e.clipboardData&&e.clipboardData.getData('text');if(typeof text==='string'&&proposed(text).length>limit){e.preventDefault();showLength(true)}});
+   el.addEventListener('input',()=>{const exceeded=el.value.length>limit;if(exceeded)el.value=el.value.slice(0,limit);showLength(exceeded)});
+   showLength();
+ }
+ document.getElementById(group).append(wrap);return el;
+}
+function radios(group,name,label,values){const box=document.createElement('fieldset');box.className='full';const legend=document.createElement('legend');legend.textContent=label+' *';box.append(legend);const choices=document.createElement('div');choices.className='choices';for(const value of values){const l=document.createElement('label');l.className='choice';const el=document.createElement('input');el.type='radio';el.name=name;el.value=value;el.required=true;l.append(el,document.createTextNode(value));choices.append(l)}box.append(choices);document.getElementById(group).append(box)}
+const nop=field('spptFields','nop','Nomor Objek Pajak (NOP)',{digits:true,maxLength:18,placeholder:'masukan 18 digit tanpa tanda baca'});nop.pattern='[0-9]{18}';nop.minLength=18;
+field('spptFields','namaSppt','Nama sesuai SPPT');
+field('objectFields','jalanObjek','Nama Jalan - Nama Dusun');field('objectFields','rwObjek','RW',{digits:true,maxLength:3});field('objectFields','rtObjek','RT',{digits:true,maxLength:3});
+const subjectName=field('subjectFields','nama','Nama');field('subjectFields','alamat','Alamat');field('subjectFields','rw','RW',{digits:true,maxLength:3});field('subjectFields','rt','RT',{digits:true,maxLength:3});
+for(const [name,label]of [['kalurahan','Desa/Kalurahan'],['kapanewon','Kecamatan/Kapanewon'],['kabupaten','Kabupaten'],['provinsi','Provinsi']])field('subjectFields',name,label);
+field('subjectFields','telepon','Nomor Telephone',{type:'tel',placeholder:'Contoh: 081234567890'});
+const locality=document.createElement('div');locality.className='full subject-locality';
+for(const name of ['rw','rt','kalurahan','kapanewon'])locality.append(form.elements[name].closest('label'));
+document.getElementById('subjectFields').insertBefore(locality,form.elements.kabupaten.closest('label'));
+field('landFields','luasTanah','Luas Tanah (m²)',{type:'number',full:true}).min='1';
+radios('landFields','tipeHak','Tipe Hak',['Milik','Guna Usaha','Guna Bangunan','Pakai','Pengelolaan']);
+field('landFields','nomorSertifikat','Nomor Sertifikat/NIBEL');field('landFields','nib','NIB',{required:false});
+radios('landFields','jenisTanah','Jenis Tanah',['Tanah+Bangunan','Tanah Kosong']);const landUsage=document.createElement('fieldset');landUsage.className='full';landUsage.innerHTML='<legend>Jenis Penggunaan</legend><label class="choice"><input type="checkbox" name="lahanPangan"> Lahan Pertanian / Ternak / Produksi Pangan</label>';document.getElementById('landFields').append(landUsage);
+radios('buildingFields','transaksiBangunan','Jenis Transaksi',['Perekaman','Pemutahkiran','Penghapusan']);radios('buildingFields','penggunaanBangunan','Jenis Penggunaan',['Perumahan','Toko','Kos/Pemondokan','Perkantoran','Gudang/Bengkel']);
+const metrics=document.createElement('div');metrics.id='buildingMetrics';metrics.className='full grid building-metrics';document.getElementById('buildingFields').append(metrics);
+const years=document.createElement('div');years.id='buildingYears';years.className='full grid year-pair';document.getElementById('buildingFields').append(years);
+for(const [name,label]of [['luasBangunan','Luas Bangunan (m²)'],['jumlahLantai','Jumlah Lantai'],['dayaListrik','Daya Listrik (Watt)']]){const el=field('buildingMetrics',name,label,{type:'number'});if(name!=='dayaListrik')el.min='1'}
+for(const [name,label,optional]of [['tahunDibangun','Tahun Dibangun',false],['tahunDirenovasi','Tahun Direnovasi',true]]){const el=field('buildingYears',name,label,{type:'number',required:!optional});el.min='1800';el.max=String(new Date().getFullYear())}
+radios('buildingFields','kondisi','Kondisi',['Sangat Baik','Baik','Sedang','Jelek']);radios('buildingFields','konstruksi','Konstruksi',['Baja','Beton','Batu Bata','Kayu']);radios('buildingFields','atap','Atap',['Beton','Genteng Beton/Aluminium','Genteng Biasa','Asbes','Seng']);radios('buildingFields','dinding','Dinding',['Kaca/Aluminum','Beton','Batu Bata/Batako','Kayu','Seng','Tidak Ada']);radios('buildingFields','lantai','Lantai',['Marmer','Keramik','Teraso','Ubin PC/Papan','Semen']);radios('buildingFields','langitLangit','Langit-langit',['Akustik/Jati','Triplek/Asbes/Bambu','Tidak Ada']);field('buildingFields','jumlahAc','Jumlah AC',{type:'number'});
+const building=document.getElementById('buildingFields');function toggleBuilding(){const show=form.elements.jenisTanah.value==='Tanah+Bangunan';building.classList.toggle('collapsed',!show);document.getElementById('buildingNote').classList.toggle('collapsed',show);document.getElementById('buildingNote').textContent=form.elements.jenisTanah.value==='Tanah Kosong'?'Tanah kosong — data bangunan tidak perlu diisi.':'Pilih Tanah+Bangunan untuk mengisi data bangunan.';building.querySelectorAll('input').forEach(el=>el.disabled=!show)}form.addEventListener('change',e=>{if(e.target.name==='jenisTanah')toggleBuilding()});toggleBuilding();
+for(const [key,title]of [['sppt','Berkas SPPT'],['ktp','Berkas KTP'],['sertifikat','Berkas Sertifikat']]){const card=document.createElement('div');card.className='upload';const icon=document.createElement('div');icon.className='icon';icon.textContent='↥';const strong=document.createElement('strong');strong.textContent=title;card.append(icon,strong);const file=document.createElement('input');file.type='file';file.name=key;file.accept='image/*,application/pdf';file.className='file-hidden';const camera=document.createElement('input');camera.type='file';camera.accept='image/*';camera.setAttribute('capture','environment');camera.className='file-hidden';const result=document.createElement('span');result.className='filename';result.textContent='Belum ada berkas dipilih';for(const [label,input]of [['Pilih berkas',file],['Buka kamera',camera]]){const button=document.createElement('button');button.type='button';button.textContent=label;button.onclick=()=>input.click();card.append(button);input.onchange=()=>{const f=input.files[0];if(f){result.textContent=f.name;card._selectedFile=f}}}card.append(file,camera,result);document.getElementById('uploads').append(card)}
+const declaredName=field('declarationFields','namaPernyataan','Nama Subjek Pajak');let autoName=true;declaredName.addEventListener('input',()=>autoName=!declaredName.value);subjectName.addEventListener('input',()=>{if(autoName)declaredName.value=subjectName.value});const date=field('declarationFields','tanggal','Tanggal Permohonan',{type:'date'});const now=new Date();date.value=[now.getFullYear(),String(now.getMonth()+1).padStart(2,'0'),String(now.getDate()).padStart(2,'0')].join('-');
+// NIK + Nama; Alamat + RW + RT; lalu dua kolom data wilayah.
+const nik=field('subjectFields','nik','NIK',{digits:true,maxLength:16});nik.pattern='[0-9]{16}';nik.minLength=16;
+document.getElementById('subjectFields').prepend(nik.closest('label'));
+for(const name of ['kalurahan','kapanewon'])document.getElementById('subjectFields').insertBefore(form.elements[name].closest('label'),form.elements.kabupaten.closest('label'));
+locality.prepend(form.elements.alamat.closest('label'));
+function grouped(parent,className,items){const group=document.createElement('div');group.className='full '+className;parent.insertBefore(group,items[0]);for(const item of items){item.classList.remove('full');group.append(item)}return group}
+const land=document.getElementById('landFields');
+grouped(land,'land-rights',[form.elements.luasTanah.closest('label'),land.querySelector('input[name="tipeHak"]').closest('fieldset')]);
+grouped(land,'land-use',[land.querySelector('input[name="jenisTanah"]').closest('fieldset'),landUsage]);
+grouped(building,'ceiling-ac',[building.querySelector('input[name="langitLangit"]').closest('fieldset'),form.elements.jumlahAc.closest('label')]);
+const signatureWrap=document.querySelector('.signature-wrap');
+const signatureActions=document.createElement('div');signatureActions.className='signature-actions';signatureWrap.before(signatureActions);signatureActions.append(signatureWrap,document.querySelector('.footer'));
+const canvas=document.getElementById('signature'),ctx=canvas.getContext('2d');let drawing=false,signed=false,strokes=[],stroke=[];function redraw(){const r=canvas.getBoundingClientRect(),ratio=window.devicePixelRatio||1;canvas.width=Math.round(r.width*ratio);canvas.height=Math.round(r.height*ratio);ctx.setTransform(ratio,0,0,ratio,0,0);ctx.strokeStyle='#203f35';ctx.lineWidth=2;ctx.lineCap='round';ctx.lineJoin='round';for(const points of strokes){ctx.beginPath();points.forEach((p,i)=>i?ctx.lineTo(p.x*r.width,p.y*r.height):ctx.moveTo(p.x*r.width,p.y*r.height));ctx.stroke()}}function point(e){const r=canvas.getBoundingClientRect();return{x:(e.clientX-r.left)/r.width,y:(e.clientY-r.top)/r.height}}canvas.onpointerdown=e=>{e.preventDefault();drawing=true;stroke=[point(e)];strokes.push(stroke);canvas.setPointerCapture(e.pointerId)};canvas.onpointermove=e=>{if(!drawing)return;e.preventDefault();stroke.push(point(e));signed=true;redraw()};canvas.onpointerup=canvas.onpointercancel=()=>drawing=false;document.getElementById('clearSignature').onclick=()=>{strokes=[];signed=false;redraw()};new ResizeObserver(redraw).observe(canvas);
+form.onsubmit=e=>{e.preventDefault();const notice=document.getElementById('notice');notice.style.display='block';if([...document.querySelectorAll('.upload')].some(el=>!el._selectedFile)){notice.textContent='Silakan pilih berkas SPPT, KTP, dan sertifikat terlebih dahulu.'}else if(!signed){notice.textContent='Silakan bubuhkan tanda tangan terlebih dahulu.'}else{notice.textContent='Pratinjau berhasil: isian, lampiran, dan tanda tangan sudah dilengkapi. Data belum dikirim atau disimpan karena backend akan disesuaikan setelah tampilan disetujui.'}notice.scrollIntoView({behavior:'smooth',block:'center'})};
+</script></body></html>
